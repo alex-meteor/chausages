@@ -1,0 +1,23 @@
+nav {
+	@include flexbox;
+	@include flex(0 0 auto);
+
+	padding: .75rem 0;
+	font-size: 1.5rem;
+	line-height: 1.5rem;
+	background: $red-dark;
+	border-top: .25rem solid $red;
+	cursor: pointer;
+	a {
+		@include flex(1);
+
+		color: $white;
+		text-decoration: none;
+		text-align: center;
+	}
+}
+
+.rdio-icon {
+	height: 1.5rem;
+	width: 1.5rem;
+}
