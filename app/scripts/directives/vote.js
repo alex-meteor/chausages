@@ -9,10 +9,7 @@
 angular.module('app')
   .directive('vote', function () {
     return {
-      template: '<div></div>',
       restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        element.text('this is the vote directive');
-      }
+      link: function postLink(scope, element, attrs) { }
     };
   });
