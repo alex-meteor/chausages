@@ -16,7 +16,8 @@
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",
-    "angular-scenario": ">=1.2.*"
+    "angular-scenario": ">=1.2.*",
+    "normalize-css": "~3.0.1"
   },
   "testPath": "test/client/spec"
 }

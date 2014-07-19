@@ -1,0 +1,11 @@
+body {
+	height: 100vh;
+	@include flexbox;
+  @include flex-direction(column);
+
+  background: $white;
+}
+
+main {
+	@include flex(1);
+}
