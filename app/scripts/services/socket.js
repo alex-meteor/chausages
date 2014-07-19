@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('chasaugeApp')
+angular.module('app')
   .factory('socket', function () {
     // Service logic
     // ...

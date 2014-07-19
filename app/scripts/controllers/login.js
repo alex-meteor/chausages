@@ -1,25 +1,22 @@
 'use strict';
 
-angular.module('chasaugeApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location) {
-    $scope.user = {};
-    $scope.errors = {};
-
-    $scope.login = function(form) {
-      $scope.submitted = true;
+angular.module('app')
+  .controller('LoginController', function ($scope, Auth, $location) {
+    var _this = this;
+		_this.user = {};
+    _this.errors = {};
+    _this.submit = function(form) {
+      _this.submitted = true;
       
       if(form.$valid) {
-        Auth.login({
-          email: $scope.user.email,
-          password: $scope.user.password
-        })
+        Auth.login(_this.user)
         .then( function() {
           // Logged in, redirect to home
-          $location.path('/');
+          $location.path('/profile');
         })
         .catch( function(err) {
           err = err.data;
-          $scope.errors.other = err.message;
+          _this.errors.other = err.message;
         });
       }
     };

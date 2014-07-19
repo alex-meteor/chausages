@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('chasaugeApp', [
+angular.module('app', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
@@ -8,25 +8,32 @@ angular.module('chasaugeApp', [
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'partials/main',
-        controller: 'MainCtrl'
+      .when('/queue', {
+        templateUrl: 'partials/queue.html',
+        controller: 'QueueController as Queue'
       })
-      .when('/login', {
-        templateUrl: 'partials/login',
-        controller: 'LoginCtrl'
+      .when('/search', {
+        templateUrl: 'partials/search.html',
+        controller: 'SearchController as Search'
       })
-      .when('/signup', {
-        templateUrl: 'partials/signup',
-        controller: 'SignupCtrl'
+      .when('/profile', {
+        templateUrl: 'partials/profile.html',
+        controller: 'ProfileController as Profile',
+		    authenticate: true
       })
-      .when('/settings', {
-        templateUrl: 'partials/settings',
-        controller: 'SettingsCtrl',
-        authenticate: true
+	    .when('/login', {
+		    templateUrl: 'partials/login.html',
+		    controller: 'LoginController as Login'
+	    })
+	    .when('/register', {
+		    templateUrl: 'partials/register.html',
+		    controller: 'RegisterController as Register'
+	    })
+      .when('/about', {
+        templateUrl: 'partials/about.html'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/queue'
       });
       
     $locationProvider.html5Mode(true);
