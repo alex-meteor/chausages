@@ -5,27 +5,35 @@ angular.module('app')
 		this.list = [ {
 			art: 'http://placehold.it/150x150',
 			name: 'Song Name',
-			user: { name: 'Jae Cha' }
+			user: { name: 'Jae Cha' },
+			votes: [
+				{vote: true}, {vote: true}, {vote: true}, {vote: true}, {vote: false}
+			],
+			voted: true
 		},
 		{
 			art: 'http://placehold.it/150x150',
 			name: 'Song Name',
-			user: { name: 'Jae Cha' }
+			user: { name: 'Jae Cha' },
+			voted: false
 		},
 		{
 			art: 'http://placehold.it/150x150',
 			name: 'Song Name',
-			user: { name: 'Jae Cha' }
+			user: { name: 'Jae Cha' },
+			voted: false
 		},
 		{
 			art: 'http://placehold.it/150x150',
 			name: 'Song Name',
-			user: { name: 'Jae Cha' }
+			user: { name: 'Jae Cha' },
+			voted: false
 		},
 		{
 			art: 'http://placehold.it/150x150',
 			name: 'Song Name',
-			user: { name: 'Jae Cha' }
+			user: { name: 'Jae Cha' },
+			voted: false
 		}
 
 	];
@@ -34,6 +42,10 @@ angular.module('app')
 			art: 'http://placehold.it/150x150',
 			name: 'Song Name',
 			user: { name: 'Jae Cha' }
+		};
+
+		this.vote = function(_id, value) {
+			socket.emit('socket:vote', {_id: _id, value: value} );
 		};
 		/*
 		*	handle socket emissions
