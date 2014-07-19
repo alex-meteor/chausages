@@ -1,3 +1,14 @@
+<section id="now-playing">
+  <song data="Queue.playing"></song>
+</section>
 <section id="queue">
-
+    <ol>
+        <li ng-repeat="entry in Queue.list">
+            <vote ng-if="!voted"></vote>
+            <points data="entry.votes" ng-if="voted"></points>
+            <song art="entry.art" name="{{entry.name}}" extra="Submitted by {{entry.user.name}}"></song>
+            <i class="info" ng-click="toggle.info = !toggle.info"></i>
+            <song-info data="entry" ng-if="toggle.info"></song-info>
+        </li>
+    </ol>
 </section>
