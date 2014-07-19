@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('chasaugeApp')
+angular.module('app')
   .factory('Session', function ($resource) {
     return $resource('/api/session/');
   });

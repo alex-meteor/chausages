@@ -1,6 +1,5 @@
 'use strict';
-
-angular.module('chasaugeApp')
+angular.module('app')
 .factory('socket', function (socketFactory) {
 	return socketFactory({
 		ioSocket: io.connect('/chausauge')

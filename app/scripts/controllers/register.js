@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('chasaugeApp')
-  .controller('SignupCtrl', function ($scope, Auth, $location) {
+angular.module('app')
+  .controller('RegisterController', function ($scope, Auth, $location) {
     $scope.user = {};
     $scope.errors = {};
 
