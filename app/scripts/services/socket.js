@@ -2,5 +2,7 @@
 
 angular.module('chasaugeApp')
 .factory('socket', function (socketFactory) {
-	return socketFactory();
+	return socketFactory({
+		ioSocket: io.connect('/chausauge')
+	});
 });
