@@ -17,8 +17,7 @@ angular.module('app')
 		    extra: '@'
 	    },
       link: function postLink(scope, element, attrs) {
-				$scope.toggle = { info: false };
-	      console.log(scope.art);
+				scope.toggle = { info: false };
       }
     };
   });

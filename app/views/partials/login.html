@@ -1,12 +1,16 @@
-<form ng-controller="LoginController as Login" ng-submit="Login.submit()">
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input id="username" type="text" ng-model="Login.credentials.username"/>
-    </div>
-    <div class="form-group">
-        <label for="password">Username</label>
-        <input id="password" type="text" ng-model="Login.credentials.password"/>
-    </div>
-    <button class="button">Sign Up</button>
-    <button class="button" type="submit">Sign In</button>
-</form>
+<section id="login">
+    <form ng-controller="LoginController as Login" ng-submit="Login.submit()">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input id="username" type="text" ng-model="Login.credentials.username"/>
+        </div>
+        <div class="form-group">
+            <label for="password">Username</label>
+            <input id="password" type="text" ng-model="Login.credentials.password"/>
+        </div>
+        <div class="form-group">
+            <button class="button">Sign Up</button>
+            <button class="button" type="submit">Sign In</button>
+        </div>
+    </form>
+</section>

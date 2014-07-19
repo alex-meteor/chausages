@@ -1,3 +1,4 @@
+// global
 body {
 	height: 100vh;
 	@include flexbox;
@@ -5,7 +6,58 @@ body {
 
   background: $white;
 }
-
 main {
+	@include flexbox;
 	@include flex(1);
+  @include flex-direction(column);
+}
+section {
+	@include flex(1);
+}
+
+// login page
+section#login {
+	@include flexbox;
+	@include align-items(center);
+	@include justify-content(center);
+	overflow: hidden;
+}
+.form-group {
+  margin-bottom: 1rem;
+  label, input {
+  	display: block;
+  }
+  &:last-of-type {
+  	margin: 0;
+  }
+}
+
+// now playing
+section#now-playing {
+  @include flex(0 0 7rem);
+  padding: 1rem;
+  figure {
+  	margin: 0;
+  	img {
+  		width: 5rem;
+  		height: 5rem;
+  		margin-right: 1rem;
+  		vertical-align: bottom;
+  		display: inline-block;
+  	}
+  	figcaption {
+  		vertical-align: bottom;
+  		display: inline-block;
+  	}
+  }
+}
+
+// queue
+section#queue {
+  @include flex(1);
+  overflow-y: auto;
+  ol {
+  	list-style: none;
+  	margin: 0; padding: 0;
+  }
 }
