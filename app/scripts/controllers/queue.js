@@ -2,9 +2,39 @@
 
 angular.module('app')
   .controller('QueueController', function ($scope, $http, socket) {
-		this.list = [];
+		this.list = [ {
+			art: 'http://placehold.it/150x150',
+			name: 'Song Name',
+			user: { name: 'Jae Cha' }
+		},
+		{
+			art: 'http://placehold.it/150x150',
+			name: 'Song Name',
+			user: { name: 'Jae Cha' }
+		},
+		{
+			art: 'http://placehold.it/150x150',
+			name: 'Song Name',
+			user: { name: 'Jae Cha' }
+		},
+		{
+			art: 'http://placehold.it/150x150',
+			name: 'Song Name',
+			user: { name: 'Jae Cha' }
+		},
+		{
+			art: 'http://placehold.it/150x150',
+			name: 'Song Name',
+			user: { name: 'Jae Cha' }
+		}
 
+	];
 
+		this.playing = {
+			art: 'http://placehold.it/150x150',
+			name: 'Song Name',
+			user: { name: 'Jae Cha' }
+		};
 		/*
 		*	handle socket emissions
 		*/

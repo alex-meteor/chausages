@@ -12,12 +12,13 @@ angular.module('app')
       templateUrl: 'partials/song.html',
       restrict: 'E',
 	    scope: {
-		    art: '=',
+		    art: '@',
 		    name: '@',
 		    extra: '@'
 	    },
       link: function postLink(scope, element, attrs) {
 				$scope.toggle = { info: false };
+	      console.log(scope.art);
       }
     };
   });
