@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('chasaugeApp')
+angular.module('app')
 
   /**
    * Removes server error when user updates input
