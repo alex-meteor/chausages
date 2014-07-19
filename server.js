@@ -3,6 +3,7 @@
 var express = require('express'),
     path = require('path'),
     fs = require('fs'),
+    io = require('socket.io'),
     mongoose = require('mongoose');
 
 /**
@@ -24,7 +25,7 @@ fs.readdirSync(modelsPath).forEach(function (file) {
 });
 
 // Populate empty DB with sample data
-require('./lib/config/dummydata');
+// require('./lib/config/dummydata');
 
 // Passport Configuration
 var passport = require('./lib/config/passport');
@@ -32,12 +33,15 @@ var passport = require('./lib/config/passport');
 // Setup Express
 var app = express();
 require('./lib/config/express')(app);
-require('./lib/routes')(app);
+// require('./lib/routes')(app);
 
 // Start server
-app.listen(config.port, config.ip, function () {
+var server = app.listen(config.port, config.ip, function () {
   console.log('Express server listening on %s:%d, in %s mode', config.ip, config.port, app.get('env'));
 });
+
+//socket.io and routing
+require('./lib/sockets')(io, server, config, app);
 
 // Expose app
 exports = module.exports = app;
