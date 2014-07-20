@@ -15,13 +15,17 @@ angular.module('app')
 			this.load(mocks.tracks);
 			this.votes = [];
 			socket.on('queue:list', function(e) {
-				_this.load(e.list);
+
+
 			});
 
 			socket.on('queue:update', function(e) {
 				// _this.load(e.list);
 				console.log('this is the update ------------',e);
-				_this.load(e.list);
+				if(e.list) {
+					_this.load(_.sortBy(e.list, 'votes.vote'));
+					console.log(this.list);
+				}
 			});
 		};
 
