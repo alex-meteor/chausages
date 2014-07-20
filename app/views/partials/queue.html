@@ -1,15 +1,15 @@
 <section id="now-playing">
-  <song art="{{ Queue.playing.art }}" name="{{ Queue.playing.name }}" extra="Submitted by {{Queue.playing.user.name}}"></song>
+  <track art="{{ Queue.playing.art }}" name="{{ Queue.playing.name }}" extra="Submitted by {{Queue.playing.user.name}}" />
 </section>
 <section id="queue">
     <ol>
         <li ng-repeat="entry in Queue.list">
             <vote ng-if="!entry.voted">
-                <i class="arrow-up" ng-click="Queue.vote(true)">Up</i>
-                <i class="arrow-down" ng-click="Queue.vote(false)">Down</i>
+                <button class="icon-button" ng-click="entry.vote(true)"><i class="arrow-up">Up</i></button>
+                <button class="icon-button" ng-click="entry.vote(false)"><i class="arrow-down">Down</i></button>
             </vote>
             <points votes="entry.votes" ng-if="!!entry.voted"></points>
-            <song art="{{ entry.art }}" name="{{ entry.name }}" extra="Submitted by {{ entry.user.name }}"></song>
+            <track art="{{ entry.art }}" name="{{ entry.name }}" extra="Submitted by {{ entry.user.name }}" />
             <i class="info" ng-click="toggle.info = !toggle.info"></i>
             <song-info data="entry" ng-if="toggle.info"></song-info>
         </li>
