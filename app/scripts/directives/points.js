@@ -9,15 +9,24 @@
 angular.module('app')
   .directive('points', function () {
     return {
-      template: '<div></div>',
-      restrict: 'E',
-			scope: {
-				data: '='
-			},
-      link: function postLink(scope, element, attrs) {
-	      scope.$watch('data', function(value) {
-		      element.text(value.toString());
-	      }, true);
-      }
-    };
+	    restrict: 'E',
+	    scope: {
+		    votes: '='
+	    },
+	    link: function postLink(scope, element, attrs) {
+		    scope.$watch( 'votes', function (value) {
+			    var i = 0, count = 0;
+			    if(value) {
+				    for (i; i < value.length; i++) {
+					    if (value[i].vote) {
+						    count++;
+					    } else {
+						    count--;
+					    }
+				    }
+				    element.text(count.toString());
+			    }
+		    }, true);
+	    }
+    }
   });

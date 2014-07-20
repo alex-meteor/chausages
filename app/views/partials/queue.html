@@ -4,8 +4,11 @@
 <section id="queue">
     <ol>
         <li ng-repeat="entry in Queue.list">
-            <vote ng-if="!voted"></vote>
-            <points data="entry.votes" ng-if="voted"></points>
+            <vote ng-if="!entry.voted">
+                <i class="arrow-up" ng-click="Queue.vote(true)">Up</i>
+                <i class="arrow-down" ng-click="Queue.vote(false)">Down</i>
+            </vote>
+            <points votes="entry.votes" ng-if="!!entry.voted"></points>
             <song art="{{ entry.art }}" name="{{ entry.name }}" extra="Submitted by {{ entry.user.name }}"></song>
             <i class="info" ng-click="toggle.info = !toggle.info"></i>
             <song-info data="entry" ng-if="toggle.info"></song-info>
