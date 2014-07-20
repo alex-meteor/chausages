@@ -1,49 +1,58 @@
 <!doctype html>
 <html class="no-js">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<base href="/">
-		<title></title>
-		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width">
-		<script src="https://www.rdio.com/api/api.js?helper=http://localhost:9000/helper.html&client_id=DPdzGtlGJyNYSUeyE3LNXA"></script>
-		<script src="http://iangilman.com/rdio/simple-player/lib/jquery-1.9.1.min.js"></script>
-		<script src="http://iangilman.com/rdio/simple-player/lib/modernizr.touch.js"></script>
-		<script src="http://iangilman.com/rdio/simple-player/lib/underscore-1.4.4.min.js"></script>
-		<script src="http://iangilman.com/rdio/simple-player/lib/rdio-utils/rdio-utils.js"></script>
-		<script src="http://iangilman.com/rdio/simple-player/js/main.js"></script>
-		<script src="bower_components/socket.io-client/socket.io.js"></script>
-	</head>
-	<body>
-		<script>
-			var socket = io.connect('/chausauge');
-			socket.on('welcome', function(data) {
-				console.log(data.msg);
-			});
-		</script>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <base href="/">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <script src="https://www.rdio.com/api/api.js?helper=http://localhost:9000/helper.html&client_id=DPdzGtlGJyNYSUeyE3LNXA"></script>
+        <script src="http://iangilman.com/rdio/simple-player/lib/jquery-1.9.1.min.js"></script>
+        <script src="http://iangilman.com/rdio/simple-player/lib/modernizr.touch.js"></script>
+        <script src="http://iangilman.com/rdio/simple-player/lib/underscore-1.4.4.min.js"></script>
+        <script src="http://iangilman.com/rdio/simple-player/lib/rdio-utils/rdio-utils.js"></script>
+        <script src="bower_components/socket.io-client/socket.io.js"></script>
+        <script src="js/main.js"></script>
 
-			<div class="header">
-			<div class="section">
-				<img class="icon">
-			</div>
-			<div class="section">
-				<button class="play">play</button>
-				<button class="next">next</button>
-				<button class="prev">previous</button>
-			</div>
-			<div class="section">
-				<div class="track label">Not Playing</div>
-				<div class="album-title label"></div>
-				<div class="artist label"></div>
-			</div>
-		</div>
-		<form class="search">
-			Enter an artist or album name: 
-			<input type="text"/>
-			<button type="submit">Search</button>
-			<div class="error"></div>
-		</form>
-		<div class="results"></div>
-	</body>
+        <style>
+        .album .icon {
+			width: 200px;
+			height: 200px;
+			margin: 0 0 4px 0;
+			border: 1px solid rgba(0, 0, 0, 0.1);
+		}
+        </style>
+    </head>
+    <body>
+        <script>
+            var socket = io.connect('/chausauge');
+            socket.on('welcome', function(data) {
+                console.log(data.msg);
+            });
+        </script>
+
+            <div class="header">
+            <div class="section">
+                <img class="icon">
+            </div>
+            <div class="section">
+                <button class="play">play</button>
+                <button class="next">next</button>
+                <button class="prev">previous</button>
+            </div>
+            <div class="section">
+                <div class="track label">Not Playing</div>
+                <div class="album-title label"></div>
+                <div class="artist label"></div>
+            </div>
+        </div>
+        <form class="search">
+            Enter an artist or album name: 
+            <input type="text"/>
+            <button type="submit">Search</button>
+            <div class="error"></div>
+        </form>
+        <div class="results"></div>
+    </body>
 </html>
