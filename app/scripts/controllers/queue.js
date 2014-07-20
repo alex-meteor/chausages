@@ -2,12 +2,13 @@
 
 angular.module('app')
   .controller('QueueController', function ($scope, $http, Track, socket) {
-		this.list = [];
+		var _this = this;
+		_this.list = [];
 
 		//-- START MOCKS --//
 		for(var i = 0; i < mocks.tracks.length; i++) { mocks.tracks[i] = new Track(mocks.tracks[i]); }
-		this.list = mocks.tracks;
-		this.playing = this.list.pop();
+		_this.list = mocks.tracks;
+		_this.playing = this.list.pop();
 		//-- END MOCKS --//
 
 		/*
@@ -19,6 +20,6 @@ angular.module('app')
 			socket.emit('queue:add', { song: 'Dr. Carter' });
 		});
 		$scope.$on('queue:add', function (env, data){
-			this.list.push(new Track(data));
+			_this.list.push(new Track(data));
 		});
   });
