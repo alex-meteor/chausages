@@ -207,3 +207,26 @@ section {
 #about {
 	padding: 1rem;
 }
+
+// server
+form.search,
+div.section {
+	@include flexbox;
+	@include flex-direction(row);
+	@include justify-content(center);
+}
+div.track.label {
+	margin: 1rem 0;
+}
+button.fa {
+	@include flex(0 0 32%);
+}
+button.prev {
+	margin-right: 2%;
+}
+button.next {
+	margin-left: 2%;
+}
+div.controls {
+	padding: 1rem 1rem 0 1rem;
+}

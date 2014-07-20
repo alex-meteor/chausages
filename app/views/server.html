@@ -7,7 +7,12 @@
 				<title></title>
 				<meta name="description" content="">
 				<meta name="viewport" content="width=device-width">
+				<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,100italic,300,900' rel='stylesheet' type='text/css'>
+				<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+				<link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+				<link rel="stylesheet" href="styles/main.css">
 				<script src="https://www.rdio.com/api/api.js?helper=http://localhost:9000/helper.html&client_id=DPdzGtlGJyNYSUeyE3LNXA"></script>
+				<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 				<script src="http://iangilman.com/rdio/simple-player/lib/jquery-1.9.1.min.js"></script>
 				<script src="http://iangilman.com/rdio/simple-player/lib/modernizr.touch.js"></script>
 				<script src="http://iangilman.com/rdio/simple-player/lib/underscore-1.4.4.min.js"></script>
@@ -29,11 +34,10 @@
 						<div class="section">
 								<img class="icon">
 						</div>
-						<div class="section">
-								<button class="play">play</button>
-								<button class="next">next</button>
-								<button class="prev">previous</button>
-								<button class="clear">clear queue</button>
+						<div class="section controls">
+								<button class="fa fa-backward prev"></button>
+								<button class="fa fa-play play"></button>
+								<button class="fa fa-forward next"></button>
 						</div>
 						<div class="section">
 								<div class="track label">Not Playing</div>
@@ -42,8 +46,7 @@
 						</div>
 				</div>
 				<form class="search">
-						Enter an artist or album name: 
-						<input type="text"/>
+						<input type="text" placeholder="Enter an artist or album:" />
 						<button type="submit">Search</button>
 						<div class="error"></div>
 				</form>
