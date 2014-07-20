@@ -47,7 +47,7 @@ angular.module('app')
 		};
 
 		Track.prototype.voted = function(userId) {
-			return !!_.find(this.votes, {user_id: userId});
+			return !!(_.find(this.votes, {user_id: userId}));
 		};
 
     // Public API here

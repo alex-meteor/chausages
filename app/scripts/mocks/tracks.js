@@ -12,7 +12,8 @@ mocks.tracks = [
 		},
 		user: { name: 'Jae Cha' },
 		votes: [
-			{vote: true}, {vote: true}, {vote: true}, {vote: true}, {vote: false}
+			{ user_id: '9d741050-8a37-a463-e50c-4b61b69e18e2',
+				vote: true}, {vote: true}, {vote: true}, {vote: true}, {vote: false}
 		]
 	},
 	{
