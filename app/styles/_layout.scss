@@ -34,6 +34,8 @@ section {
 	}
 	input {
 		width: 100%;
+		border-radius: 5px;
+		border: 2px solid $red;
 	}
 	button {
 		width: 48%;
@@ -59,6 +61,12 @@ section {
   }
 }
 
+.icon-button {
+	border: none;
+	outline: none;
+	background: none;
+}
+
 // track 
 .track {
 	margin: 0;
@@ -78,10 +86,10 @@ section {
   display: inline-block;
 }
 #now-playing {
-  @include flex(0 0 11rem);
+  @include flex(0 0 10rem);
   color: white;
   padding: 1rem;
-  song {
+  track {
   	margin-top: 1rem;
   	display: block;
   }
@@ -96,6 +104,7 @@ section {
 #queue {
   @include flex(1);
   overflow-y: auto;
+  background: rgba(0,0,0,.8);
   ol {
   	list-style: none;
   	margin: 0; padding: 0;
@@ -103,27 +112,28 @@ section {
   li {
 		@include flexbox;
 		@include flex-direction(row);
-		margin: 1rem 1rem 1rem 0;
+		margin: .5rem .5rem .5rem 0;
   }
   points, vote {
-	  @include flex(0 0 auto);
+	  @include flex(0 0 3rem);
+	  @include align-items(center);
   }
-  song {
+  track {
   	@include flex(1);
-  	background: rgba(0,0,0,.8);
+  	background: rgba(0,0,0,.25);
   	padding: .5rem;
   }
   points, vote {
-		width: 4rem;
 		font-size: 1.5rem;
 		text-align: center;
-		padding: .3rem 0;
-		i {
+		.icon-button {
+			width: 100%;
 			display: block;
+			text-align: center;
+			margin: 0; padding: 0;
+			line-height: 1.5rem;
+			height: 1.75rem; 
 		}
-  }
-  points {
-  	
   }
   .track-art {
 		width: 2.5rem;
