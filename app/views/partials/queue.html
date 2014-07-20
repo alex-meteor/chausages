@@ -14,11 +14,11 @@
 <section id="queue">
     <ol>
         <li ng-repeat="entry in Queue.list">
-            <vote ng-if="!entry.voted(App.user._id)">
+            <vote ng-if="!entry.voted">
                 <button class="icon-button" ng-click="entry.vote(App.user._id, true)"><i class="fa fa-arrow-circle-up"></i></button>
                 <button class="icon-button" ng-click="entry.vote(App.user._id, false)"><i class="fa fa-arrow-circle-down"></i></button>
             </vote>
-            <points votes="entry.votes" ng-if="entry.voted(App.user._id)"></points>
+            <points votes="entry.votes" ng-if="entry.voted"></points>
             <track art="{{ entry.info.art }}" name="{{ entry.info.name }}" extra="Submitted by {{ entry.user.name }}" />
             <i class="info" ng-click="toggle.info = !toggle.info"></i>
             <song-info data="entry.info" ng-if="toggle.info"></song-info>

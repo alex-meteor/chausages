@@ -8,7 +8,8 @@
  * Factory in the chasaugeApp.
  */
 angular.module('app')
-  .factory('Track', function (socket) {
+	.value('Votes', [])
+  .factory('Track', function (socket, Votes) {
 		var schema = {
 			_id: 99,
 			info: {
@@ -62,15 +63,18 @@ angular.module('app')
 		};
 
 		Track.prototype.vote = function(userId, value) {
+			console.log(userId);
+			votes.push(this._id);
 			socket.emit('track:vote', { user_id: userId, _id: this._id, vote: value } );
 		};
 
 		Track.prototype.voted = function(userId) {
-			return !!(_.find(this.votes, {user_id: userId}));
+			return Queue.votes.indexOf(this._id) > -1;
 		};
 
 		Track.prototype.add = function(userId) {
 			var add = { user_id: userId, track: this.info };
+			Votes.push(this._id);
 			socket.emit('queue:add', add);
 		};
 
