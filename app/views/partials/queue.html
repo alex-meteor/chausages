@@ -5,8 +5,8 @@
     <ol>
         <li ng-repeat="entry in Queue.list">
             <vote ng-if="!entry.voted">
-                <i class="arrow-up" ng-click="Queue.vote(true)">Up</i>
-                <i class="arrow-down" ng-click="Queue.vote(false)">Down</i>
+                <i class="fa fa-arrow-up arrow-up" ng-click="Queue.vote(true)"></i>
+                <i class="fa fa-arrow-down arrow-down" ng-click="Queue.vote(false)"></i>
             </vote>
             <points votes="entry.votes" ng-if="!!entry.voted"></points>
             <song art="{{ entry.art }}" name="{{ entry.name }}" extra="Submitted by {{ entry.user.name }}"></song>
