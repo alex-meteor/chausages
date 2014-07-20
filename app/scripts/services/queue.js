@@ -12,7 +12,7 @@ angular.module('app')
 		var Queue = function() {
 			var _this = this;
 			this.list = [];
-			this.load(mocks.tracks);
+//			this.load(mocks.tracks);
 			this.votes = [];
 			socket.on('queue:list', function(e) {
 
