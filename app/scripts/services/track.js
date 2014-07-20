@@ -12,6 +12,7 @@ angular.module('app')
 		var schema = {
 			_id: 99,
 			info: {
+				key: '',
 				name: 'Unknown',
 				artist: 'Unknown',
 				art: 'http://placehold.it/150x150',
@@ -24,12 +25,11 @@ angular.module('app')
 		};
 
     var Track = function(init) {
-    	if(init.albumArtist){
+	    if(init.albumArtist){
     		this.map(init);
-    	}else{
-			angular.extend(this, init);
-		};
-
+    	} else {
+		    angular.extend(this, init);
+	    }
 	    _.defaults(this, schema);
 
 	    socket.on('track:update', function(e) {
@@ -48,12 +48,14 @@ angular.module('app')
 
 		Track.prototype.map = function(init) {
 			angular.extend(this, {
-				_id: init.key,
-				info:{
+				info: {
+					key: init.key,
 					name: init.name,
 					artist: init.artist,
 					album: init.album,
 					art: init.icon,
+					explicit: init.isExplicit,
+					duration: init.duration
 				}
 			});
 		};
@@ -67,10 +69,11 @@ angular.module('app')
 			return !!(_.find(this.votes, {user_id: userId}));
 		};
 
-		Track.prototype.add = function() {
-			socket.emit('queue:add', { _id: this._id });
+		Track.prototype.add = function(userId) {
+			var add = { user_id: userId, track: this.info };
+			console.log(add);
+			socket.emit('queue:add', add);
 		};
-
     // Public API here
 		return Track;
   });
