@@ -37,6 +37,21 @@
 						console.log(data.msg);
 				});
 
+				self.socket.on('queue:update', function(data){
+					var list;
+					if(data.list){
+						R.player.queue.clear();
+						list = _.sortBy(data.list, function(track) { 
+							_countBy(track.votes, function(vote) { 
+								vote.vote ? 1 : -1; 
+							})
+						});
+						_.each(list, function(track){
+							R.player.queue.add(track.key);
+						})
+					}
+				});
+
 				self.socket.on('queue:add', function(data) {
 					console.log("new song to add to queue", data);
 					R.player.queue.add(data.key);
