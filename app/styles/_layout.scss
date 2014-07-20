@@ -172,11 +172,27 @@ section {
 	.track-name {
     font-size: 1rem;
     line-height: 1rem;
+    max-width: 13.25rem;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		margin-bottom: .25rem;
 	}
 	.track-extra {
 		font-weight: 400;
 		font-size: .75rem;
+		max-width: 13.25rem;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
+	.add-to-queue {
+  	@include flex(0 0 1.75rem);
+		line-height: 3.5rem;
+  	cursor: pointer;
+  	font-size: 2rem;
+  	color: $red;
+  }
 }
 
 #search {
