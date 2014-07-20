@@ -1,3 +1,14 @@
 <section id="search">
-    {{ Search.query }}
+    <!-- {{ Search.query }} -->
+    <input type="text" ng-model="searchQuery" placeholder="Search Chausage" class="textInput" style="color:#000;" />
+</section>
+<section id="queue">
+    <ol>
+        <li ng-repeat="entry in rdioSearchResults">
+            <track art="{{ entry.icon }}" name="{{ entry.name }}" extra="Album {{ entry.album }}" />
+            <i class="info" ng-click="toggle.info = !toggle.info"></i>
+            <song-info data="entry.info" ng-if="toggle.info"></song-info>
+            <i class="fa fa-plus-circle add-to-queue"></i>
+        </li>
+    </ol>
 </section>

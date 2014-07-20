@@ -1,24 +1,27 @@
-<section id="now-playing">
-    <h3>Now Playing</h3>
-    <div class="equalizer">
-        <span class="equalizer-item equalizer-1"></span>
-        <span class="equalizer-item equalizer-2"></span>
-        <span class="equalizer-item equalizer-3"></span>
-        <span class="equalizer-item equalizer-none"></span>
+<section id="now-playing" style="background: url({{ Queue.playing.info.art }})">
+    <div class="now-playing">
+        <h2>Now Playing</h2>
+        <div class="equalizer">
+            <span class="equalizer-item equalizer-1"></span>
+            <span class="equalizer-item equalizer-2"></span>
+            <span class="equalizer-item equalizer-3"></span>
+            <span class="equalizer-item equalizer-none"></span>
+        </div>
+        <track art="{{ Queue.playing.info.art }}" name="{{ Queue.playing.info.name }}" extra="Submitted by {{Queue.playing.user.name}}" />
     </div>
-    <track art="{{ Queue.playing.art }}" name="{{ Queue.playing.name }}" extra="Submitted by {{Queue.playing.user.name}}" />
+    <div class="overlay"></div>
 </section>
 <section id="queue">
     <ol>
         <li ng-repeat="entry in Queue.list">
-            <vote ng-if="!entry.voted">
+            <vote ng-if="!entry.voted(App.user._id)">
                 <button class="icon-button" ng-click="entry.vote(true)"><i class="fa fa-arrow-circle-up"></i></button>
                 <button class="icon-button" ng-click="entry.vote(false)"><i class="fa fa-arrow-circle-down"></i></button>
             </vote>
-            <points votes="entry.votes" ng-if="!!entry.voted"></points>
-            <track art="{{ entry.art }}" name="{{ entry.name }}" extra="Submitted by {{ entry.user.name }}" />
+            <points votes="entry.votes" ng-if="entry.voted(App.user._id)"></points>
+            <track art="{{ entry.info.art }}" name="{{ entry.info.name }}" extra="Submitted by {{ entry.user.name }}" />
             <i class="info" ng-click="toggle.info = !toggle.info"></i>
-            <song-info data="entry" ng-if="toggle.info"></song-info>
+            <song-info data="entry.info" ng-if="toggle.info"></song-info>
         </li>
     </ol>
 </section>
