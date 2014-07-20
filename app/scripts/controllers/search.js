@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('SearchController', function ($scope, User, Auth, socket) {
+  .controller('SearchController', function ($rootScope, $scope, User, Auth, socket) {
 		var query = 'Search Query';
 
 		Object.defineProperty(this, 'query', {
@@ -17,6 +17,12 @@ angular.module('app')
 		        socket.emit('service:rdio:search', {query: $scope.searchQuery});
 		    })
 		}, 1000));
+
+		$scope.addToQueue = function(songKey){
+			console.log(songKey);
+
+			$rootScope.trackQueue.push(songKey);
+		};
 
 		this.results = [];
 

@@ -19,7 +19,7 @@
                 <button class="icon-button" ng-click="entry.vote(false)"><i class="fa fa-arrow-circle-down"></i></button>
             </vote>
             <points votes="entry.votes" ng-if="entry.voted(App.user._id)"></points>
-            <track art="{{ entry.info.art }}" name="{{ entry.info.name }}" extra="Submitted by {{ entry.user.name }}" />
+            <track art="{{ entry.icon }}" name="{{ entry.name }}" extra="Submitted by {{ entry.user.name }}" />
             <i class="info" ng-click="toggle.info = !toggle.info"></i>
             <song-info data="entry.info" ng-if="toggle.info"></song-info>
         </li>
