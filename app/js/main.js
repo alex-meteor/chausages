@@ -12,44 +12,42 @@
 
 			R.ready(function() {
 
-				var socket = io.connect('/chausauge');
-				socket.on('welcome', function(data) {
+				self.socket = io.connect('/chausauge');
+				self.socket.on('welcome', function(data) {
 						console.log(data.msg);
 				});
 
-				socket.on('queue:add', function(data) {
+				self.socket.on('queue:add', function(data) {
 					console.log(data.msg);
 					
 				});
 
-				socket.on('queue:remove', function(data) {
+				self.socket.on('queue:remove', function(data) {
 					console.log(data.msg);
 				});
 
-				socket.on('queue:vote', function(data) {
+				self.socket.on('queue:vote', function(data) {
 					console.log(data.msg);
 				});
 
-				socket.on('service:rdio:search', function(data) {
-					console.log(data.msg);
+				self.socket.on('service:rdio:search', function(data) {
+					var results = self.search(data.query);
+					console.log(results);
 				});
 
-				R.player.queue.add("t1271908");
-				R.player.queue.play();
-				
-				R.request({
-					method: "search", 
-					content: {
-						query: "science of selling",
-						types: "Track"
-					},
-					success: function(response) {
-						self.showResults(response.result);
-					},
-					error: function(response) {
-						$(".error").text(response.message);
-					}
-				});
+				// R.request({
+				// 	method: "search", 
+				// 	content: {
+				// 		query: "science of selling",
+				// 		types: "Track"
+				// 	},
+				// 	success: function(response) {
+				// 		self.showResults(response.result);
+				// 	},
+				// 	error: function(response) {
+				// 		$(".error").text(response.message);
+				// 	}
+				// });
 			});
 		}, 
 		
@@ -63,15 +61,21 @@
 					types: "Track"
 				},
 				success: function(response) {
-					self.$input.val("");
-					self.showResults(response.result.results);
+					console.log(response.result.results);
+					self.socket.emit("service:rdio:search:results", {"results" : response.result.results});
+					return response.result.results;
 				},
 				error: function(response) {
-					$(".error").text(response.message);
+					return "there was an error";
 				}
 			});
 		},
-		
+		addToQueue: function(track){
+			console.log(track);
+			var self = this;
+			R.player.queue.add(track.key);
+			R.player.queue.play();
+		},
 		// ----------
 		showResults: function(albums) {
 			console.log('showing results');
