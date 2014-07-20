@@ -11,9 +11,15 @@ angular.module('app')
   .factory('Track', function (socket) {
 		var schema = {
 			_id: 99,
-			name: 'Unknown',
-			album: 'Unknown',
-			art: 'http://placehold.it/150x150',
+			info: {
+				name: 'Unknown',
+				artist: 'Unknown',
+				art: 'http://placehold.it/150x150',
+				comments: [],
+				user: {
+					name: 'Jae Cha'
+				}
+			},
 			votes: []
 		};
 
@@ -26,7 +32,6 @@ angular.module('app')
 			    angular.extend(this, e.track);
 		    }
 	    });
-	    
     };
 
 		Track.prototype.score = function() {
@@ -38,7 +43,11 @@ angular.module('app')
 
 		Track.prototype.vote = function(value) {
 			this.voted = true;
-			socket.emit('queue:vote', {_id: this._id, value: value} );
+			socket.emit('track:vote', {_id: this._id, value: value} );
+		};
+
+		Track.prototype.voted = function(userId) {
+			return !!_.find(this.votes, {user_id: userId});
 		};
 
     // Public API here

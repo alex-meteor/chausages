@@ -2,37 +2,41 @@ if(!mocks) {
 	var mocks = {};
 }
 
-mocks.tracks = [ {
-	art: 'http://placehold.it/150x150',
-	name: 'Song Name',
-	user: { name: 'Jae Cha' },
-	votes: [
-		{vote: true}, {vote: true}, {vote: true}, {vote: true}, {vote: false}
-	],
-	voted: true
+mocks.tracks = [
+	{
+		info: {
+			art: 'http://placehold.it/150x150',
+			name: 'Oops, I Did It Again',
+			artist: 'Brittany Spears',
+			album: 'I Don\'t Know'
+		},
+		user: { name: 'Jae Cha' },
+		votes: [
+			{vote: true}, {vote: true}, {vote: true}, {vote: true}, {vote: false}
+		]
 	},
 	{
-		art: 'http://placehold.it/150x150',
-		name: 'Song Name',
+		info: {
+			art: 'http://placehold.it/150x150',
+			name: 'Oops, I Did It Again',
+			artist: 'Brittany Spears',
+			album: 'I Don\'t Know'
+		},
 		user: { name: 'Jae Cha' },
-		voted: false
+		votes: [
+			{vote: true}, {vote: true}, {vote: true}, {vote: true}, {vote: false}
+		]
 	},
 	{
-		art: 'http://placehold.it/150x150',
-		name: 'Song Name',
+		info: {
+			art: 'http://placehold.it/150x150',
+			name: 'Oops, I Did It Again',
+			artist: 'Brittany Spears',
+			album: 'I Don\'t Know'
+		},
 		user: { name: 'Jae Cha' },
-		voted: false
-	},
-	{
-		art: 'http://placehold.it/150x150',
-		name: 'Song Name',
-		user: { name: 'Jae Cha' },
-		voted: false
-	},
-	{
-		art: 'http://placehold.it/150x150',
-		name: 'Song Name',
-		user: { name: 'Jae Cha' },
-		voted: false
+		votes: [
+			{vote: true}, {vote: true}, {vote: true}, {vote: true}, {vote: false}
+		]
 	}
 ];
