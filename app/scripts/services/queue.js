@@ -23,7 +23,7 @@ angular.module('app')
 		};
 
 		Queue.prototype.add = function(track) {
-			socket.emit('queue:add', track);
+			this.list.push(track);
 		};
 
 		Queue.prototype.load = function(tracks) {
