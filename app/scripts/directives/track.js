@@ -7,7 +7,7 @@
  * # song
  */
 angular.module('app')
-  .directive('song', function () {
+  .directive('track', function () {
     return {
       templateUrl: 'partials/song.html',
       restrict: 'E',
