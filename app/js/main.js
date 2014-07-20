@@ -16,7 +16,7 @@
 				R.player.on("change:playingTrack",function(data){
 					console.log('track changed');
 					console.log(data);
-					self.socket.emit('queue:remove',{key: self.playing});
+					self.socket.emit('queue:update',{remove: self.playing, playing: data.attributes});
 					self.playing = data.attributes.key;
 				});
 
