@@ -12,11 +12,7 @@ angular.module('app')
 		var Queue = function() {
 			var _this = this;
 			this.list = [];
-
-			socket.on('queue:add', function(e){
-				_this.list.push(new Track(e.track));
-			});
-
+			this.load(mocks.tracks);
 			socket.on('queue:list', function(e) {
 				_this.load(e.list);
 			});
@@ -31,6 +27,7 @@ angular.module('app')
 		};
 
 		Queue.prototype.load = function(tracks) {
+			angular.copy([], this.list);
 			for(var i =0; i < tracks.length; i++) {
 				this.list.push(new Track(tracks[i]));
 			}
