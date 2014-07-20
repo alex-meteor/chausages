@@ -8,7 +8,7 @@
             <track art="{{ entry.info.art }}" name="{{ entry.info.name }}" extra="Album {{ entry.info.album }}" />
             <!-- <i class="info" ng-click="toggle.info = !toggle.info"></i> -->
             <!-- <song-info data="entry.info" ng-if="toggle.info"></song-info> -->
-            <i class="fa fa-plus-square add-to-queue" ng-click="entry.add()"></i>
+            <i class="fa fa-plus-square add-to-queue" ng-click="entry.add(App.user._id)"></i>
         </li>
     </ol>
 </section>
