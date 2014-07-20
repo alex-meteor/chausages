@@ -30,7 +30,10 @@ section {
 	@include justify-content(center);
 	overflow: hidden;
 	form {
-		min-width: 50%;
+		min-width: 80%;
+		@include min-screen($bp-medium) {
+			min-width: 50%;
+		}
 	}
 	input {
 		width: 100%;
@@ -53,8 +56,10 @@ section {
 	  margin-bottom: .5rem;
   }
   input {
+  	color: #666;
   	display: block;
   	padding: .5rem;
+  	outline: 0;
   }
   &:last-of-type {
   	margin: 0;
@@ -81,14 +86,15 @@ section {
 }
 
 // now playing
-.now-playing {
-	vertical-align: top;
-  display: inline-block;
-}
 #now-playing {
   @include flex(0 0 10rem);
-  color: white;
+  position: relative;
   padding: 1rem;
+  color: white;
+  h3 {
+		vertical-align: top;
+	  display: inline-block;
+	}
   track {
   	margin-top: 1rem;
   	display: block;
@@ -152,4 +158,9 @@ section {
 		font-weight: 400;
 		font-size: .75rem;
 	}
+}
+
+// about
+#about {
+	padding: 1rem;
 }
