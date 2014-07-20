@@ -22,10 +22,6 @@ angular.module('app')
 			this.list = _.sortBy(this.list, 'score')
 		};
 
-		Queue.prototype.add = function(track) {
-			this.list.push(track);
-		};
-
 		Queue.prototype.load = function(tracks) {
 			angular.copy([], this.list);
 			for(var i =0; i < tracks.length; i++) {
