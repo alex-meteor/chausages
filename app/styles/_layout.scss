@@ -4,7 +4,15 @@ body {
 	@include flexbox;
   @include flex-direction(column);
 
-  background: $white;
+  background: #a90329;
+background: -moz-linear-gradient(-45deg,  #a90329 0%, #8f0222 44%, #6d0019 100%);
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(100%,#6d0019));
+background: -webkit-linear-gradient(-45deg,  #a90329 0%,#8f0222 44%,#6d0019 100%);
+background: -o-linear-gradient(-45deg,  #a90329 0%,#8f0222 44%,#6d0019 100%);
+background: -ms-linear-gradient(-45deg,  #a90329 0%,#8f0222 44%,#6d0019 100%);
+background: linear-gradient(135deg,  #a90329 0%,#8f0222 44%,#6d0019 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=1 );
+
 }
 main {
 	@include flexbox;
@@ -65,13 +73,18 @@ section {
 }
 
 // now playing
+.now-playing {
+	vertical-align: top;
+  display: inline-block;
+}
 #now-playing {
-  @include flex(0 0 7rem);
+  @include flex(0 0 11rem);
   color: white;
-  // background: $red;
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNjAiIGhlaWdodD0iMzAiPgo8ZGVmcz4KPHJlY3QgaWQ9InIiIHdpZHRoPSIzMCIgaGVpZ2h0PSIxNSIgZmlsbD0iIzhCMDAwMCIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZT0iIzgwMDAwMCI+PC9yZWN0Pgo8ZyBpZD0icCI+Cjx1c2UgeGxpbms6aHJlZj0iI3IiPjwvdXNlPgo8dXNlIHk9IjE1IiB4bGluazpocmVmPSIjciI+PC91c2U+Cjx1c2UgeT0iMzAiIHhsaW5rOmhyZWY9IiNyIj48L3VzZT4KPHVzZSB5PSI0NSIgeGxpbms6aHJlZj0iI3IiPjwvdXNlPgo8L2c+CjwvZGVmcz4KPHVzZSB4bGluazpocmVmPSIjcCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAtMjUpIHNrZXdZKDQwKSI+PC91c2U+Cjx1c2UgeGxpbms6aHJlZj0iI3AiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwIDApIHNrZXdZKC00MCkiPjwvdXNlPgo8L3N2Zz4=");
-	border-bottom: .25rem solid $red;
   padding: 1rem;
+  song {
+  	margin-top: 1rem;
+  	display: block;
+  }
   .track-art {
 		width: 5rem;
 		height: 5rem;
@@ -88,19 +101,29 @@ section {
   	margin: 0; padding: 0;
   }
   li {
-		margin: .55rem .5rem;
-		border-bottom: 1px solid lightgrey;
-		padding-bottom: .5rem;
+		@include flexbox;
+		@include flex-direction(row);
+		margin: 1rem 1rem 1rem 0;
   }
-  song, points, vote {
-  	vertical-align: top;
-	  display: inline-block;
+  points, vote {
+	  @include flex(0 0 auto);
+  }
+  song {
+  	@include flex(1);
+  	background: rgba(0,0,0,.8);
+  	padding: .5rem;
   }
   points, vote {
 		width: 4rem;
 		font-size: 1.5rem;
 		text-align: center;
 		padding: .3rem 0;
+		i {
+			display: block;
+		}
+  }
+  points {
+  	
   }
   .track-art {
 		width: 2.5rem;

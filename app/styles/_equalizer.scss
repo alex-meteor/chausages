@@ -1,0 +1,46 @@
+@keyframes music {
+  0% {
+    height: 0;
+  }
+  
+  50% {
+    height: 20px;
+  }
+  
+  100% {
+    height: 5px;
+  }
+}
+
+@mixin equalize($number) {
+  animation: music #{$number}s linear infinite;
+}
+
+.equalizer {
+  vertical-align: top;
+  display: inline-block;
+  margin: .8rem 0 0 .8rem;
+}
+
+.equalizer-item {
+  display: inline-block;
+  background: white;
+  width: 3px;
+  height: 20px;
+}
+
+.equalizer-none {
+  opacity: 0;
+}
+
+.equalizer-1 {
+  @include equalize(.5);
+}
+ 
+.equalizer-2 {
+  @include equalize(.9);
+}
+
+.equalizer-3 {
+  @include equalize(.7);
+}
