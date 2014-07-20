@@ -24,7 +24,12 @@ angular.module('app')
 		};
 
     var Track = function(init) {
+    	if(init.albumArtist){
+    		this.map(init);
+    	}else{
 			angular.extend(this, init);
+		};
+
 	    _.defaults(this, schema);
 
 	    socket.on('track:update', function(e) {
@@ -41,6 +46,18 @@ angular.module('app')
 			}
 		};
 
+		Track.prototype.map = function(init) {
+			angular.extend(this, {
+				_id: init.key,
+				info:{
+					name: init.name,
+					artist: init.artist,
+					album: init.album,
+					art: init.icon,
+				}
+			});
+		};
+
 		Track.prototype.vote = function(value) {
 			this.voted = true;
 			socket.emit('track:vote', {_id: this._id, value: value} );
@@ -48,6 +65,10 @@ angular.module('app')
 
 		Track.prototype.voted = function(userId) {
 			return !!(_.find(this.votes, {user_id: userId}));
+		};
+
+		Track.prototype.add = function() {
+			socket.emit('queue:add', { _id: this._id });
 		};
 
     // Public API here
