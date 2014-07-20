@@ -37,7 +37,7 @@
 						console.log(data.msg);
 				});
 
-				self.socket.on('queue:update', function(data){
+				self.socket.on('queue:update:list', function(data){
 					console.log('updating queue');
 					var list;
 					if(data.list){

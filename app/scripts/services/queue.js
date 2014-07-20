@@ -18,9 +18,11 @@ angular.module('app')
 			});
 
 			socket.on('queue:update', function(e) {
+				console.log('E', e)
 				// _this.load(e.list);
 				console.log('this is the update ------------',e);
 				_this.load(e.list);
+				_this.playing = e.playing
 			});
 		};
 
