@@ -38,24 +38,27 @@
 				});
 
 				self.socket.on('queue:update', function(data){
+					console.log('updating queue');
 					var list;
 					if(data.list){
 						R.player.queue.clear();
 						list = _.sortBy(data.list, function(track) { 
-							_countBy(track.votes, function(vote) { 
+							_.countBy(track.votes, function(vote) { 
 								vote.vote ? 1 : -1; 
 							})
 						});
+						console.log(list);
 						_.each(list, function(track){
-							R.player.queue.add(track.key);
+							console.log('each', track.info.key);
+							R.player.queue.add(track.info.key);
 						})
 					}
 				});
 
-				self.socket.on('queue:add', function(data) {
-					console.log("new song to add to queue", data);
-					R.player.queue.add(data.key);
-				});
+				// self.socket.on('queue:add', function(data) {
+				// 	console.log("new song to add to queue", data);
+				// 	R.player.queue.add(data.key);
+				// });
 
 				self.socket.on('queue:remove', function(data) {
 					console.log(data.msg);

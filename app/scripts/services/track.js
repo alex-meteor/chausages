@@ -47,6 +47,7 @@ angular.module('app')
 		};
 
 		Track.prototype.map = function(init) {
+			console.log('Track Map', init)
 			angular.extend(this, {
 				info: {
 					key: init.key,
@@ -70,7 +71,7 @@ angular.module('app')
 
 		Track.prototype.add = function(userId) {
 			var add = { user_id: userId, track: this.info };
-			console.log(add);
+			console.log('TRACK -> queue:add', add);
 			socket.emit('queue:add', add);
 		};
 
