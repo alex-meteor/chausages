@@ -20,6 +20,13 @@ angular.module('app')
     var Track = function(init) {
 			angular.extend(this, init);
 	    _.defaults(this, schema);
+
+	    socket.on('track:update', function(e) {
+		    if(e.track._id === this._id) {
+			    angular.extend(this, e.track);
+		    }
+	    });
+	    
     };
 
 		Track.prototype.score = function() {
