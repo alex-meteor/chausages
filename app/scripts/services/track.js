@@ -69,6 +69,7 @@ angular.module('app')
 			return !!(_.find(this.votes, {user_id: userId}));
 		};
 
+
 		Track.prototype.add = function(userId) {
 			var add = { user_id: userId, track: this.info };
 			console.log(add);
