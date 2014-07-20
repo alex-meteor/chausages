@@ -17,9 +17,6 @@ angular.module('app')
 			socket.on('service:rdio:search:results', function(e) {
 				_this.load(e.results);
 			});
-			socket.on('update:queue', function(data){
-				Queue.add(data.track);
-			});
 		};
 
 		Search.prototype.search = function(){
