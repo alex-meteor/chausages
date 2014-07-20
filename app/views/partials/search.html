@@ -1,3 +1,18 @@
 <section id="search">
     {{ Search.query }}
+    <input type="text" ng-model="searchQuery"  class="textInput" />
+</section>
+<section id="queue">
+    <ol>
+        <li ng-repeat="entry in Queue.list">
+            <track art="{{ entry.info.art }}" name="{{ entry.info.name }}" extra="Submitted by {{ entry.user.name }}" />
+            <i class="info" ng-click="toggle.info = !toggle.info"></i>
+            <song-info data="entry.info" ng-if="toggle.info"></song-info>
+        </li>
+        <li>
+            <track art="{{ entry.info.art }}" name="{{ entry.info.name }}" extra="Submitted by {{ entry.user.name }}" />
+            <i class="info" ng-click="toggle.info = !toggle.info"></i>
+            <song-info data="entry.info" ng-if="toggle.info"></song-info>
+        </li>
+    </ol>
 </section>
