@@ -13,6 +13,7 @@ angular.module('app')
 			var _this = this;
 			this.list = [];
 			this.load(mocks.tracks);
+			this.votes = [];
 			socket.on('queue:list', function(e) {
 				_this.load(e.list);
 			});
