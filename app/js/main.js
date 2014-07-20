@@ -11,15 +11,26 @@
 			this.$results = $(".results");
 
 			R.ready(function() {
+				$('.play').click(function(){
+					R.player.queue.play();
+				});
+
+				$('.next').click(function(){
+					R.player.next();
+				});
+
+				$('.clear').click(function(){
+					R.player.queue.clear();
+				});
 
 				self.socket = io.connect('/chausauge');
 				self.socket.on('welcome', function(data) {
 						console.log(data.msg);
 				});
 
-				self.socket.on('queue:add', function(data) {
-					console.log(data.msg);
-					
+				self.socket.on('update:queue', function(data) {
+					console.log("new song to add to queue", data);
+					R.player.queue.add(data.key);
 				});
 
 				self.socket.on('queue:remove', function(data) {
@@ -51,7 +62,7 @@
 				},
 				success: function(response) {
 					console.log(response.result.results);
-					console.log('about to emit results to client');
+					console.log('about to emit results to server');
 					self.socket.emit("service:rdio:search:r:results", {"results" : response.result.results});
 					return response.result.results;
 				},
