@@ -6,9 +6,15 @@
     <ol>
         <li ng-repeat="entry in rdioSearchResults">
             <track art="{{ entry.icon }}" name="{{ entry.name }}" extra="Album {{ entry.album }}" />
+<<<<<<< HEAD
             <i class="info" ng-click="toggle.info = !toggle.info"></i>
             <song-info data="entry.info" ng-if="toggle.info"></song-info>
             <i class="fa fa-plus-circle add-to-queue" ng-click="addToQueue(entry)"></i>
+=======
+            <!-- <i class="info" ng-click="toggle.info = !toggle.info"></i> -->
+            <!-- <song-info data="entry.info" ng-if="toggle.info"></song-info> -->
+            <i class="fa fa-plus-square add-to-queue"></i>
+>>>>>>> 7ce61499a194050cfa5cffe215fd2888c7e5656a
         </li>
     </ol>
 </section>
