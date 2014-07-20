@@ -4,6 +4,20 @@
   -webkit-font-smoothing: antialiased;
 }
 
+// break points
+$bp-small: 640px;
+$bp-medium: 768px;
+$bp-large: 1280px;
+$bp-xlarge: 1680px;
+
+// responsive text
+html {
+  font-size: 16px;
+  @include min-screen($bp-medium) {
+    font-size: 20px;
+  }
+}
+
 // colors
 $red: #B22222;
 $red-dark: #8B0000;
@@ -23,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
 .button {
 	border: 0;
 	color: white;
-	padding: .5rem;
+	padding: .5rem 1rem;
 	background: $red;
 	border-radius: 5px;
 	border-bottom: .25rem solid $red-dark;
