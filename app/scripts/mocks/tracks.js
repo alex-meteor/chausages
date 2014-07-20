@@ -5,7 +5,7 @@ if(!mocks) {
 mocks.tracks = [
 	{
 		info: {
-			art: 'http://placehold.it/150x150',
+			art: '../images/oops.jpg',
 			name: 'Oops, I Did It Again',
 			artist: 'Brittany Spears',
 			album: 'I Don\'t Know'
@@ -17,7 +17,7 @@ mocks.tracks = [
 	},
 	{
 		info: {
-			art: 'http://placehold.it/150x150',
+			art: '../images/oops.jpg',
 			name: 'Oops, I Did It Again',
 			artist: 'Brittany Spears',
 			album: 'I Don\'t Know'
@@ -29,7 +29,7 @@ mocks.tracks = [
 	},
 	{
 		info: {
-			art: 'http://placehold.it/150x150',
+			art: '../images/oops.jpg',
 			name: 'Oops, I Did It Again',
 			artist: 'Brittany Spears',
 			album: 'I Don\'t Know'
