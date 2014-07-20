@@ -1,12 +1,15 @@
 <section id="now-playing">
-    <h3>Now Playing</h3>
-    <div class="equalizer">
-        <span class="equalizer-item equalizer-1"></span>
-        <span class="equalizer-item equalizer-2"></span>
-        <span class="equalizer-item equalizer-3"></span>
-        <span class="equalizer-item equalizer-none"></span>
+    <div class="now-playing">
+        <h2>Now Playing</h2>
+        <div class="equalizer">
+            <span class="equalizer-item equalizer-1"></span>
+            <span class="equalizer-item equalizer-2"></span>
+            <span class="equalizer-item equalizer-3"></span>
+            <span class="equalizer-item equalizer-none"></span>
+        </div>
+        <track art="{{ Queue.playing.info.art }}" name="{{ Queue.playing.info.name }}" extra="Submitted by {{Queue.playing.user.name}}" />
     </div>
-    <track art="{{ Queue.playing.info.art }}" name="{{ Queue.playing.info.name }}" extra="Submitted by {{Queue.playing.user.name}}" />
+    <div class="overlay"></div>
 </section>
 <section id="queue">
     <ol>

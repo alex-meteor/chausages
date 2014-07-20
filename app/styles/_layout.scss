@@ -86,23 +86,50 @@ section {
 }
 
 // now playing
+@keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: 0 100%; }
+}
 #now-playing {
   @include flex(0 0 10rem);
   position: relative;
   padding: 1rem;
   color: white;
-  h3 {
+  text-shadow: -1px 1px 1px black;
+  background-image: url('../images/oops.jpg');
+	background-position: 0px 0px;
+	background-repeat: repeat-y;
+  animation: animatedBackground 25s linear infinite;
+  .now-playing {
+  	z-index: 99999;
+  	position: relative;
+  }
+  .overlay {
+  	z-index: 1;
+  	top: 0; left: 0; 
+  	position: absolute;
+  	width: 100%; height: 100%;
+		background: -moz-linear-gradient(left,  rgba(109,0,26,0.75) 0%, rgba(109,0,26,0) 100%); background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(109,0,26,0.75)), color-stop(100%,rgba(109,0,26,0))); background: -webkit-linear-gradient(left,  rgba(109,0,26,0.75) 0%,rgba(109,0,26,0) 100%); background: -o-linear-gradient(left,  rgba(109,0,26,0.75) 0%,rgba(109,0,26,0) 100%); background: -ms-linear-gradient(left,  rgba(109,0,26,0.75) 0%,rgba(109,0,26,0) 100%); background: linear-gradient(to right,  rgba(109,0,26,0.75) 0%,rgba(109,0,26,0) 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf6d001a', endColorstr='#006d001a',GradientType=1 );
+  }
+  h2 {
+  	font-weight: 100;
+  	font-size: 1.5rem;
 		vertical-align: top;
 	  display: inline-block;
+	  margin-top: 1.5rem;
 	}
   track {
   	margin-top: 1rem;
   	display: block;
   }
   .track-art {
-		width: 5rem;
-		height: 5rem;
-		margin-right: 1rem;
+		display: none;
+	}
+	.track-name {
+  	font-size: 1.5rem;
+	}
+	.track-extra {
+		font-weight: 100;
 	}
 }
 
