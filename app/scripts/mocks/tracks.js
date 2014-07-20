@@ -21,7 +21,8 @@ mocks.tracks = [ {
 		art: 'http://placehold.it/150x150',
 		name: 'Song Name',
 		user: { name: 'Jae Cha' },
-		voted: false
+		voted: false,
+		_id: 1
 	},
 	{
 		art: 'http://placehold.it/150x150',
