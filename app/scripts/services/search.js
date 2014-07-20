@@ -18,7 +18,6 @@ angular.module('app')
 				_this.load(e.results);
 			});
 			socket.on('update:queue', function(data){
-				console.log(data.track);
 				Queue.add(data.track);
 			});
 		};
@@ -32,7 +31,6 @@ angular.module('app')
 			for(var i =0; i < tracks.length; i++) {
 				this.list.push(new Track(tracks[i]));
 			}
-			console.log(this.list);
 		};
 
 		return new Search();

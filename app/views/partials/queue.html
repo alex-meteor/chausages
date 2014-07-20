@@ -15,8 +15,8 @@
     <ol>
         <li ng-repeat="entry in Queue.list">
             <vote ng-if="!entry.voted(App.user._id)">
-                <button class="icon-button" ng-click="entry.vote(true)"><i class="fa fa-arrow-circle-up"></i></button>
-                <button class="icon-button" ng-click="entry.vote(false)"><i class="fa fa-arrow-circle-down"></i></button>
+                <button class="icon-button" ng-click="entry.vote(App.user._id, true)"><i class="fa fa-arrow-circle-up"></i></button>
+                <button class="icon-button" ng-click="entry.vote(App.user._id, false)"><i class="fa fa-arrow-circle-down"></i></button>
             </vote>
             <points votes="entry.votes" ng-if="entry.voted(App.user._id)"></points>
             <track art="{{ entry.info.art }}" name="{{ entry.info.name }}" extra="Submitted by {{ entry.user.name }}" />

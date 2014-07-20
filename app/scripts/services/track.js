@@ -60,21 +60,19 @@ angular.module('app')
 			});
 		};
 
-		Track.prototype.vote = function(value) {
-			this.voted = true;
-			socket.emit('track:vote', {_id: this._id, value: value} );
+		Track.prototype.vote = function(userId, value) {
+			socket.emit('track:vote', { user_id: userId, _id: this._id, vote: value } );
 		};
 
 		Track.prototype.voted = function(userId) {
 			return !!(_.find(this.votes, {user_id: userId}));
 		};
 
-
 		Track.prototype.add = function(userId) {
 			var add = { user_id: userId, track: this.info };
 			console.log(add);
 			socket.emit('queue:add', add);
 		};
-    // Public API here
+
 		return Track;
   });
