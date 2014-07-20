@@ -63,18 +63,16 @@ angular.module('app')
 		};
 
 		Track.prototype.vote = function(userId, value) {
-			console.log(userId);
-			votes.push(this._id);
+			Votes.push(this._id);
 			socket.emit('track:vote', { user_id: userId, _id: this._id, vote: value } );
 		};
 
 		Track.prototype.voted = function(userId) {
-			return Queue.votes.indexOf(this._id) > -1;
+			return Votes.indexOf(this._id) > -1;
 		};
 
 		Track.prototype.add = function(userId) {
 			var add = { user_id: userId, track: this.info };
-			Votes.push(this._id);
 			socket.emit('queue:add', add);
 		};
 
