@@ -37,7 +37,7 @@
 						console.log(data.msg);
 				});
 
-				self.socket.on('update:queue', function(data) {
+				self.socket.on('queue:add', function(data) {
 					console.log("new song to add to queue", data);
 					R.player.queue.add(data.key);
 				});
