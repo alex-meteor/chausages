@@ -68,7 +68,7 @@ angular.module('app')
 		};
 
 		Track.prototype.add = function() {
-			socket.emit('queue:add', { _id: this._id });
+			socket.emit('queue:add', { track: this });
 		};
 
     // Public API here

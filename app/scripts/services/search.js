@@ -8,7 +8,7 @@
  * Factory in the chasaugeApp.
  */
 angular.module('app')
-	.service('Search', function (Track, socket) {
+	.service('Search', function (Track, Queue, socket) {
 		var Search = function() {
 			var _this = this;
 			this.list = [];
@@ -16,6 +16,10 @@ angular.module('app')
 			// this.load(mocks.tracks);
 			socket.on('service:rdio:search:results', function(e) {
 				_this.load(e.results);
+			});
+			socket.on('update:queue', function(data){
+				console.log(data.track);
+				Queue.add(data.track);
 			});
 		};
 
